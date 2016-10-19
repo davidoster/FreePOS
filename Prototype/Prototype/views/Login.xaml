@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Prototype.Login">
+
+  <Grid RowSpacing="0" ColumnSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height=".55*"/>
+      <RowDefinition Height=".03*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".03*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".02*"/>
+      <RowDefinition Height=".07*"/>
+      <RowDefinition Height=".1*"/>
+    </Grid.RowDefinitions>
+      <Grid ColumnSpacing="0" Grid.Row="2">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width=".1*"/>
+          <ColumnDefinition Width=".8*"/>
+          <ColumnDefinition Width=".1*"/>
+        </Grid.ColumnDefinitions>
+        <Entry Grid.Column="1" x:Name="username" Placeholder="correo electrónico"/>
+      </Grid>
+    <Grid ColumnSpacing="0" Grid.Row="4">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".8*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Entry Grid.Column="1" x:Name="password" Placeholder="Contraseña" IsPassword="True"/>
+    </Grid>
+    <Grid ColumnSpacing="0" Grid.Row="6">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".39*"/>
+        <ColumnDefinition Width=".26*"/>
+        <ColumnDefinition Width=".02*"/>
+        <ColumnDefinition Width=".26*"/>
+        <ColumnDefinition Width=".07*"/>
+      </Grid.ColumnDefinitions>
+      <Button x:Name="signup" Text="Regístrate" Clicked="OnSignUp" Grid.Column="1"/>
+      <Button x:Name="login" Text="Ingresa" Clicked="OnLogin" Grid.Column="3"/>
+    </Grid>
+  </Grid>
+</ContentPage>

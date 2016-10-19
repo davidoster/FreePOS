@@ -2,4 +2,66 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototype.SignUp">
+  <Grid RowSpacing="0" ColumnSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height=".25*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".125*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".125*"/>
+    </Grid.RowDefinitions>
+    <Grid ColumnSpacing="0" Grid.Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".8*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Entry Grid.Column="1" Text="{Binding name}" Placeholder="Nombre"/>
+    </Grid>
+    <Grid ColumnSpacing="0" Grid.Row="2">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".8*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Entry Grid.Column="1" Text="{Binding surname}" Placeholder="Apellido"/>
+    </Grid>
+    <Grid ColumnSpacing="0" Grid.Row="3">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".8*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Entry Grid.Column="1" Text="{Binding email}" Placeholder="Correo Electrónico"/>
+    </Grid>
+    <Grid ColumnSpacing="0" Grid.Row="4">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".8*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Entry Grid.Column="1" Text="{Binding phone}" Placeholder="Teléfono"/>
+    </Grid>
+    <Grid ColumnSpacing="0" Grid.Row="5">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".8*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Entry Grid.Column="1" Text="{Binding password}" Placeholder="Contraseña" IsPassword="True"/>
+    </Grid>
+    <Grid ColumnSpacing="0" Grid.Row="7">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".6*"/>
+        <ColumnDefinition Width=".3*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Button Grid.Column="1" Text="Regístrate" Clicked="OnSave"/>
+    </Grid>
+  </Grid>
+
 </ContentPage>

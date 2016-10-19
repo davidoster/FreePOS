@@ -82,7 +82,6 @@ namespace Prototype
             var uri = new Uri(Constants.RestURL);
             var data = JsonConvert.SerializeObject(user);
             dynamic sendContent = CreateMessage(Constants.SIGNUP, data);
-            sendContent.data = JsonConvert.SerializeObject(user);
             Debug.WriteLine(sendContent.ToString());
             try
             {

@@ -9,9 +9,11 @@ namespace Prototype
 {
     public class App : Application
     {
+        public static RESTManager Manager { get; private set; }
         public App()
         {
-            
+            Manager = new RESTManager(new RestService());
+            MainPage = new NavigationPage(new Login());
         }
 
         protected override void OnStart()
