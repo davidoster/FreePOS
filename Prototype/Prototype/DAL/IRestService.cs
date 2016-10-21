@@ -10,5 +10,8 @@ namespace Prototype
     {
         Task<User> Login(string username, string password);
         Task<string> SignUp(User user);
+        Task<string> AddCompany(Company company);
+        Task<string> AddStore(Store store);
+        Task<List<Company>> FetchCompanies();
     }
 }

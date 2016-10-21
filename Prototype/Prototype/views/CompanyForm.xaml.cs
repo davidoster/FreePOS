@@ -9,28 +9,28 @@ using Plugin.Toasts;
 
 namespace Prototype
 {
-    public partial class SignUp : ContentPage
+    public partial class CompanyForm : ContentPage
     {
-        private IToastNotificator notificator;
-        private User user;
-        public SignUp()
+        IToastNotificator notificator;
+        Company company;
+        public CompanyForm()
         {
             InitializeComponent();
             notificator = DependencyService.Get<IToastNotificator>();
-            user = new User() { name = "Andrés", email="a.mejia@mill.com.co", password="123456", phone="3104770718", surname="Mejía"};
-            this.BindingContext = user;
+            company = new Company();
+            this.BindingContext = company;
         }
 
         private async void OnSave(object sender, EventArgs e)
         {
-            user = (User)BindingContext;
+            company = (Company)this.BindingContext;
 
-            var response = await App.Manager.SignUp(user);
+            var response = await App.Manager.AddCompany(company);
 
             if (response != null)
             {
-                notificator.Notify(ToastNotificationType.Success, "FREEPOS", "Bienvenido a FreePOS", TimeSpan.FromSeconds(2));
-                await Navigation.PushAsync(new StoreForm());
+                notificator.Notify(ToastNotificationType.Success, "FREEPOS", "Empresa creada con éxito", TimeSpan.FromSeconds(2));
+                await Navigation.PopAsync();
             }
             else
             {

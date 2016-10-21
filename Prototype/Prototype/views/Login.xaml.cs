@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Plugin.Toasts;
+using ZXing.Net.Mobile.Forms;
 
 namespace Prototype
 {
@@ -16,6 +17,26 @@ namespace Prototype
         {
             InitializeComponent();
             notificator = DependencyService.Get<IToastNotificator>();
+
+        }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            var scanPage = new ZXingScannerPage();
+
+            scanPage.OnScanResult += (result) => {
+                // Stop scanning
+                scanPage.IsScanning = false;
+
+                // Pop the page and show the result
+                Device.BeginInvokeOnMainThread(() => {
+                    Navigation.PopAsync();
+                    DisplayAlert("Scanned Barcode", result.Text, "OK");
+                });
+            };
+
+            await Navigation.PushAsync(scanPage);
         }
 
         private async void OnLogin(object sender, EventArgs e)
@@ -23,7 +44,8 @@ namespace Prototype
             User user = await App.Manager.Login(username.Text, password.Text);
             if (user != null)
             {
-                await notificator.Notify(ToastNotificationType.Success, "FREEPOS", "Ingreso exitoso", TimeSpan.FromSeconds(2));
+                notificator.Notify(ToastNotificationType.Success, "FREEPOS", "Ingreso exitoso", TimeSpan.FromSeconds(2));
+                await Navigation.PushAsync(new StoreForm());
             }
             else
             {

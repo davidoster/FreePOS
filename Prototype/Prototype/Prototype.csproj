@@ -36,18 +36,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="DAL\Company.cs" />
+    <Compile Include="DAL\Inventory.cs" />
     <Compile Include="DAL\IRestService.cs" />
     <Compile Include="DAL\RESTManager.cs" />
     <Compile Include="DAL\RestService.cs" />
+    <Compile Include="DAL\Store.cs" />
     <Compile Include="DAL\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils\Constants.cs" />
     <Compile Include="utils\ServiceResult.cs" />
+    <Compile Include="views\CompanyForm.xaml.cs">
+      <DependentUpon>CompanyForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\StoreForm.xaml.cs">
+      <DependentUpon>StoreForm.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -84,9 +93,37 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.3.2.127\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ZXing.Net.Mobile.Core, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\portable-net45+netcore45+wpa81+wp8\ZXing.Net.Mobile.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZXing.Net.Mobile.Forms, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.Forms.2.1.47\lib\portable-net45+netcore45+wpa81+wp8\ZXing.Net.Mobile.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="zxing.portable, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\portable-net45+netcore45+wpa81+wp8\zxing.portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZXingNetMobile, Version=2.1.47.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ZXing.Net.Mobile.2.1.47\lib\portable-net45+netcore45+wpa81+wp8\ZXingNetMobile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="views\SignUp.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\CompanyForm.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\StoreForm.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

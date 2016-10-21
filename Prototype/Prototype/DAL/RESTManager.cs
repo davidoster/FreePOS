@@ -24,5 +24,20 @@ namespace Prototype
         {
             return restService.SignUp(user);
         }
+
+        public Task<string> AddCompany(Company company)
+        {
+            return restService.AddCompany(company);
+        }
+
+        public Task<string> AddStore(Store store)
+        {
+            return restService.AddStore(store);
+        }
+
+        public Task<List<Company>> FetchCompanies()
+        {
+            return restService.FetchCompanies();
+        }
     }
 }

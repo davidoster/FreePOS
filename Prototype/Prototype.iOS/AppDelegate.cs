@@ -27,6 +27,7 @@ namespace Prototype.iOS
             global::Xamarin.Forms.Forms.Init();
             DependencyService.Register<ToastNotificatorImplementation>();
             ToastNotificatorImplementation.Init();
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             LoadApplication(new App());
             
             return base.FinishedLaunching(app, options);

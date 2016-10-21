@@ -14,6 +14,7 @@ namespace Prototype
         {
             Manager = new RESTManager(new RestService());
             MainPage = new NavigationPage(new Login());
+                        
         }
 
         protected override void OnStart()
