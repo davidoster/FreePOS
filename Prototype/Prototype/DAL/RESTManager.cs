@@ -39,5 +39,20 @@ namespace Prototype
         {
             return restService.FetchCompanies();
         }
+
+        public Task<List<Store>> FetchStores()
+        {
+            return restService.FetchStores();
+        }
+
+        public Task<string> AddInventory(Inventory inventory)
+        {
+            return restService.AddInventory(inventory);
+        }
+
+        public Task<List<Inventory>> FetchInventories()
+        {
+            return restService.FetchInventories();
+        }
     }
 }

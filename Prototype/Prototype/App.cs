@@ -13,7 +13,7 @@ namespace Prototype
         public App()
         {
             Manager = new RESTManager(new RestService());
-            MainPage = new NavigationPage(new Login());
+            MainPage = new NavigationPage(new ScanPage());
                         
         }
 

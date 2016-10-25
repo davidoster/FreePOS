@@ -49,8 +49,17 @@
     <Compile Include="views\CompanyForm.xaml.cs">
       <DependentUpon>CompanyForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\InventoryForm.xaml.cs">
+      <DependentUpon>InventoryForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\Lobby.xaml.cs">
+      <DependentUpon>Lobby.xaml</DependentUpon>
+    </Compile>
     <Compile Include="views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\ScanPage.xaml.cs">
+      <DependentUpon>ScanPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
@@ -124,6 +133,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="views\StoreForm.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\ScanPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\InventoryForm.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="views\Lobby.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

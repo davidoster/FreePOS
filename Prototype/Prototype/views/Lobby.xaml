@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Prototype.Lobby">
+  <Grid RowSpacing="0" ColumnSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height=".3*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".15*"/>
+      <RowDefinition Height=".1*"/>
+      <RowDefinition Height=".15*"/>
+    </Grid.RowDefinitions>
+    <Grid ColumnSpacing="0" Grid.Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".7*"/>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Picker x:Name="pkr_company" Title="Compañía" SelectedIndex="-1" SelectedIndexChanged="OnCompanyChanged" Grid.Column="1">
+      </Picker>
+      <Button Text="+" Clicked="OnAddCompany" Grid.Column="2" x:Name="AddComapny"/>
+    </Grid>
+    <Grid ColumnSpacing="0" Grid.Row="2">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".7*"/>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Picker x:Name="pkr_store" Title="Tienda" SelectedIndex="-1" SelectedIndexChanged="OnStoreChanged" Grid.Column="1" IsEnabled="false">
+      </Picker>
+      <Button Text="+" Clicked="OnAddStore" Grid.Column="2" x:Name="AddStore" IsEnabled="false"/>
+    </Grid>
+    <Grid ColumnSpacing="0" Grid.Row="3">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".7*"/>
+        <ColumnDefinition Width=".1*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Picker x:Name="pkr_inventory" Title="Inventario" SelectedIndex="-1" SelectedIndexChanged="OnInventoryChanged" Grid.Column="1" IsEnabled="false">
+      </Picker>
+      <Button Text="+" Clicked="OnAddInventory" Grid.Column="2" x:Name="AddInventory" IsEnabled="false"/>
+    </Grid>
+    <Grid ColumnSpacing="0" Grid.Row="5">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width=".6*"/>
+        <ColumnDefinition Width=".3*"/>
+        <ColumnDefinition Width=".1*"/>
+      </Grid.ColumnDefinitions>
+      <Button Grid.Column="1" Text="Continuar" Clicked="OnContinue" IsEnabled="False" x:Name="Continue"/>
+    </Grid>
+  </Grid>
+</ContentPage>

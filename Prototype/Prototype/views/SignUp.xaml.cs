@@ -30,7 +30,7 @@ namespace Prototype
             if (response != null)
             {
                 notificator.Notify(ToastNotificationType.Success, "FREEPOS", "Bienvenido a FreePOS", TimeSpan.FromSeconds(2));
-                await Navigation.PushAsync(new StoreForm());
+                await Navigation.PushAsync(new Lobby());
             }
             else
             {

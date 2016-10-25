@@ -237,5 +237,129 @@ namespace Prototype
                 return null;
             }
         }
+
+        public async Task<List<Store>> FetchStores()
+        {
+            var uri = new Uri(Constants.RestURL);
+            dynamic data = new JObject();
+            data.idcompany = selectedCompany.idcompanies;
+            dynamic sendContent = CreateMessage(Constants.FETCH_STORE, data);
+            PrepareClient();
+            Debug.WriteLine(sendContent.ToString());
+
+            try
+            {
+                var content = new StringContent(sendContent.ToString(), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = null;
+
+                response = await client.PostAsync(uri, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    byte[] buffer = await response.Content.ReadAsByteArrayAsync();
+                    string result = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
+                    Debug.WriteLine(result);
+                    ServiceResult sr = JsonConvert.DeserializeObject<ServiceResult>(result);
+                    List<Store> stores = JsonConvert.DeserializeObject<List<Store>>(sr.data.ToString());
+                    return stores;
+                }
+                else
+                {
+                    byte[] buffer = await response.Content.ReadAsByteArrayAsync();
+                    string result = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
+                    Debug.WriteLine(result);
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public async Task<string> AddInventory(Inventory inventory)
+        {
+            var uri = new Uri(Constants.RestURL);
+            var data = JsonConvert.SerializeObject(inventory);
+            dynamic sendContent = CreateMessage(Constants.ADD_INVENTORY, data);
+            PrepareClient();
+            Debug.WriteLine(sendContent.ToString());
+            try
+            {
+                var content = new StringContent(sendContent.ToString(), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = null;
+
+                response = await client.PostAsync(uri, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    byte[] buffer = await response.Content.ReadAsByteArrayAsync();
+                    string result = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
+                    Debug.WriteLine(result);
+                    ServiceResult sr = JsonConvert.DeserializeObject<ServiceResult>(result);
+                    selectedInventory = JsonConvert.DeserializeObject<Inventory>(sr.data.ToString());
+                    return result;
+                }
+                else
+                {
+                    byte[] buffer = await response.Content.ReadAsByteArrayAsync();
+                    string result = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
+                    Debug.WriteLine(result);
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public async Task<List<Inventory>> FetchInventories()
+        {
+            var uri = new Uri(Constants.RestURL);
+            dynamic data = new JObject();
+            data.idstore = selectedStore.idstores;
+            dynamic sendContent = CreateMessage(Constants.FETCH_INVENTORIES, data);
+            PrepareClient();
+            Debug.WriteLine(sendContent.ToString());
+
+            try
+            {
+                var content = new StringContent(sendContent.ToString(), Encoding.UTF8, "application/json");
+                HttpResponseMessage response = null;
+
+                response = await client.PostAsync(uri, content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    byte[] buffer = await response.Content.ReadAsByteArrayAsync();
+                    string result = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
+                    Debug.WriteLine(result);
+                    ServiceResult sr = JsonConvert.DeserializeObject<ServiceResult>(result);
+                    List<Inventory> inventories = JsonConvert.DeserializeObject<List<Inventory>>(sr.data.ToString());
+                    return inventories;
+                }
+                else
+                {
+                    byte[] buffer = await response.Content.ReadAsByteArrayAsync();
+                    string result = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
+                    Debug.WriteLine(result);
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                Debug.WriteLine(ex.Message);
+                return null;
+            }
+        }
     }
 }

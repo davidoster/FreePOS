@@ -13,5 +13,8 @@ namespace Prototype
         Task<string> AddCompany(Company company);
         Task<string> AddStore(Store store);
         Task<List<Company>> FetchCompanies();
+        Task<List<Store>> FetchStores();
+        Task<string> AddInventory(Inventory inventory);
+        Task<List<Inventory>> FetchInventories();
     }
 }
